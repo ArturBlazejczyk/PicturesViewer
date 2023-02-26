@@ -47,9 +47,6 @@
             // 
             // btnDeletePicture
             // 
-            this.btnDeletePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeletePicture.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeletePicture.Location = new System.Drawing.Point(464, 415);
             this.btnDeletePicture.Name = "btnDeletePicture";
@@ -63,6 +60,7 @@
             // pbox
             // 
             this.pbox.Location = new System.Drawing.Point(12, 12);
+            this.pbox.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.pbox.Name = "pbox";
             this.pbox.Size = new System.Drawing.Size(760, 388);
             this.pbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,6 +76,8 @@
             this.Controls.Add(this.pbox);
             this.Controls.Add(this.btnDeletePicture);
             this.Controls.Add(this.btnAddPicture);
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Main";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
