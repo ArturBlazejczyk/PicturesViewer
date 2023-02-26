@@ -19,43 +19,29 @@ namespace PicturesViewer
         public Main()
         {
             InitializeComponent();
-            ShowLastUsedPicture(storedImagePath);
+            ShowLastUsedImage();
         }
 
-        private void ShowLastUsedPicture(string storedImagePath)
+        private void ShowLastUsedImage()
         {
             pbox.ImageLocation = File.ReadAllText(storedImagePath);
         }
 
-        private void RememberLastPicture(string imagePath)
-        {
-            if (!File.Exists(storedImagePath))
-                File.Create(storedImagePath);
-
-            File.WriteAllText(storedImagePath, imagePath);
-        }
-
         private void btnAddPicture_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "image files (*.jpg)|*.jpg";
+            var pictureHelper = new ImageHelper();
+            imagePath = pictureHelper.UploadImage();
+            pictureHelper.SaveLastImage(imagePath, storedImagePath);
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    imagePath = openFileDialog.FileName;
-                }
-            }
-
-            RememberLastPicture(imagePath);
             pbox.ImageLocation = imagePath;
         }
 
         private void btnDeletePicture_Click(object sender, EventArgs e)
         {
+            var pictureHelper = new ImageHelper();
+            pictureHelper.SaveLastImage(String.Empty, storedImagePath);
+
             pbox.ImageLocation = null;
-            RememberLastPicture(String.Empty);
             btnDeletePicture.Visible = false;
         }
 

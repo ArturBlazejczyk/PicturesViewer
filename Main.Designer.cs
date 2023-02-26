@@ -65,6 +65,7 @@
             this.pbox.Location = new System.Drawing.Point(12, 12);
             this.pbox.Name = "pbox";
             this.pbox.Size = new System.Drawing.Size(760, 388);
+            this.pbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox.TabIndex = 2;
             this.pbox.TabStop = false;
             this.pbox.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pbox_LoadCompleted);
