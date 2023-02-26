@@ -19,7 +19,6 @@ namespace PicturesViewer
         public Main()
         {
             InitializeComponent();
-
             ShowLastUsedPicture(storedImagePath);
         }
 
@@ -30,7 +29,7 @@ namespace PicturesViewer
 
         private void RememberLastPicture(string imagePath)
         {
-            if(!File.Exists(storedImagePath))
+            if (!File.Exists(storedImagePath))
                 File.Create(storedImagePath);
 
             File.WriteAllText(storedImagePath, imagePath);
@@ -57,6 +56,12 @@ namespace PicturesViewer
         {
             pbox.ImageLocation = null;
             RememberLastPicture(String.Empty);
+            btnDeletePicture.Visible = false;
+        }
+
+        private void pbox_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            btnDeletePicture.Visible = true;
         }
     }
 }

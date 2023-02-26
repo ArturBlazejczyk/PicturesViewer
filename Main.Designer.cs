@@ -57,6 +57,7 @@
             this.btnDeletePicture.TabIndex = 1;
             this.btnDeletePicture.Text = "Usuń zdjęcie";
             this.btnDeletePicture.UseVisualStyleBackColor = true;
+            this.btnDeletePicture.Visible = false;
             this.btnDeletePicture.Click += new System.EventHandler(this.btnDeletePicture_Click);
             // 
             // pbox
@@ -66,6 +67,7 @@
             this.pbox.Size = new System.Drawing.Size(760, 388);
             this.pbox.TabIndex = 2;
             this.pbox.TabStop = false;
+            this.pbox.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pbox_LoadCompleted);
             // 
             // Main
             // 
