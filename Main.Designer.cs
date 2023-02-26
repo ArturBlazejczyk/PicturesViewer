@@ -43,6 +43,7 @@
             this.btnAddPicture.TabIndex = 0;
             this.btnAddPicture.Text = "Dodaj zdjęcie";
             this.btnAddPicture.UseVisualStyleBackColor = true;
+            this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
             // 
             // btnDeletePicture
             // 
@@ -56,6 +57,7 @@
             this.btnDeletePicture.TabIndex = 1;
             this.btnDeletePicture.Text = "Usuń zdjęcie";
             this.btnDeletePicture.UseVisualStyleBackColor = true;
+            this.btnDeletePicture.Click += new System.EventHandler(this.btnDeletePicture_Click);
             // 
             // pbox
             // 

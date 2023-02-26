@@ -16,5 +16,15 @@ namespace PicturesViewer
         {
             InitializeComponent();
         }
+
+        private void btnAddPicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeletePicture_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
