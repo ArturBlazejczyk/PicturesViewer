@@ -19,18 +19,20 @@ namespace PicturesViewer
         public Main()
         {
             InitializeComponent();
-            pbox.ImageLocation = ReadStoredImagePath(storedImagePath);
+
+            ShowLastUsedPicture(storedImagePath);
         }
 
-        private string ReadStoredImagePath(string storedImagePath)
+        private void ShowLastUsedPicture(string storedImagePath)
         {
-            return File.ReadAllText(storedImagePath);
+            pbox.ImageLocation = File.ReadAllText(storedImagePath);
         }
 
         private void RememberLastPicture(string imagePath)
         {
             if(!File.Exists(storedImagePath))
                 File.Create(storedImagePath);
+
             File.WriteAllText(storedImagePath, imagePath);
         }
 
@@ -53,7 +55,8 @@ namespace PicturesViewer
 
         private void btnDeletePicture_Click(object sender, EventArgs e)
         {
-
+            pbox.ImageLocation = null;
+            RememberLastPicture(String.Empty);
         }
     }
 }
