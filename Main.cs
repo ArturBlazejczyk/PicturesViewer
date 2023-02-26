@@ -19,6 +19,12 @@ namespace PicturesViewer
         public Main()
         {
             InitializeComponent();
+            pbox.ImageLocation = ReadStoredImagePath(storedImagePath);
+        }
+
+        private string ReadStoredImagePath(string storedImagePath)
+        {
+            return File.ReadAllText(storedImagePath);
         }
 
         private void RememberLastPicture(string imagePath)
