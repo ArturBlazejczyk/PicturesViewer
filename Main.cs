@@ -14,10 +14,18 @@ namespace PicturesViewer
 {
     public partial class Main : Form
     {
-        public string filePath;
+        private string imagePath;
+        private string storedImagePath = Environment.CurrentDirectory + "storedImagePath.txt";
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void RememberLastPicture(string imagePath)
+        {
+            if(!File.Exists(storedImagePath))
+                File.Create(storedImagePath);
+            File.WriteAllText(storedImagePath, imagePath);
         }
 
         private void btnAddPicture_Click(object sender, EventArgs e)
@@ -29,11 +37,12 @@ namespace PicturesViewer
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    filePath = openFileDialog.FileName;
+                    imagePath = openFileDialog.FileName;
                 }
             }
 
-            pbox.ImageLocation = filePath;
+            RememberLastPicture(imagePath);
+            pbox.ImageLocation = imagePath;
         }
 
         private void btnDeletePicture_Click(object sender, EventArgs e)
